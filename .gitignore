@@ -36,3 +36,9 @@ replay_pid*
 .idea/compiler.xml
 .idea/gradle.xml
 .idea/misc.xml
+.gradle/8.0/executionHistory/executionHistory.lock
+.gradle/8.0/fileHashes/fileHashes.lock
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+.gradle/file-system.probe
+.idea/misc.xml
+local.properties
