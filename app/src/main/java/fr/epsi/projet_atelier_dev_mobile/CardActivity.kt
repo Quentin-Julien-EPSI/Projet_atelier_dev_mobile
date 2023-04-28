@@ -13,7 +13,7 @@ import com.google.zxing.WriterException
 import com.google.zxing.common.BitMatrix
 
 
-class HomeActivity : BaseActivity() {
+class CardActivity : BaseActivity() {
     private fun generateBarcode(fidelityCardNumber: String) {
         val imageView = findViewById<ImageView>(R.id.barcodeImageView)
         val barcodeBitmap = encodeAsBitmap(fidelityCardNumber, BarcodeFormat.CODE_128, 800, 300)
@@ -36,7 +36,7 @@ class HomeActivity : BaseActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_card)
         setHeaderTitle("Logo EPSI")
         val preferenceHelper = PreferenceHelper(this)
 

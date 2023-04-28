@@ -31,7 +31,7 @@
             android:name=".OffersListActivity"
             android:exported="false" />
         <activity
-            android:name=".MapsActivity"
+            android:name=".StoresActivity"
             android:exported="false" />
         <activity
             android:name=".AccountCreationFormActivity"
@@ -42,7 +42,7 @@
             android:label="@string/title_activity_account_creation"
             android:theme="@style/Theme.Projet_atelier_dev_mobile" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".CardActivity"
             android:exported="false" />
         <activity
             android:name=".CaptureActivityAnyOrientation"
