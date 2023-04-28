@@ -19,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
             val savedUser = preferenceHelper.getUser()
             if(savedUser != null) {
                 Log.i("PROJET ATELIER DEV MOBILE", "################ User :"+savedUser.firstName)
-                val newIntent = Intent(application, CardActivity::class.java)
+                val newIntent = Intent(application, UserHomeActivity::class.java)
                 startActivity(newIntent)
                 finish()
             }else{

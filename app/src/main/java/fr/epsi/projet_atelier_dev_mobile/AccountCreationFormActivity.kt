@@ -40,7 +40,7 @@ class AccountCreationFormActivity : BaseActivity() {
             val user = User(nom_form.text.toString(), prenom_form.text.toString(), email_form.text.toString(), adresse_form.text.toString(), code_postal_form.text.toString(), ville_form.text.toString(), carte_de_fidelite_form.text.toString())
             val preferenceHelper = PreferenceHelper(this)
             preferenceHelper.saveUser(user)
-            val newIntent = Intent(application, CardActivity::class.java)
+            val newIntent = Intent(application, UserHomeActivity::class.java)
             startActivity(newIntent)
         }
     }

@@ -3,7 +3,7 @@
 
     <item android:title="Carte"
         android:icon="@drawable/baseline_map_24"
-        android:id="@+id/maps"
+        android:id="@+id/carte"
         />
     <item android:title="Offres"
         android:icon="@drawable/baseline_shopping_cart_24"

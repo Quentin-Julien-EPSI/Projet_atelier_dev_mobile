@@ -2,7 +2,6 @@ package fr.epsi.projet_atelier_dev_mobile
 
 import android.os.Bundle
 import android.Manifest
-import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.util.Log
@@ -11,7 +10,6 @@ import android.widget.ImageButton
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.zxing.integration.android.IntentIntegrator
-import com.journeyapps.barcodescanner.CaptureActivity
 
 class AccountCreationActivity : BaseActivity() {
     private val CAMERA_REQUEST_CODE = 1001

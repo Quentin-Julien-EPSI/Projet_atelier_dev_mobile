@@ -1,11 +1,12 @@
 package fr.epsi.projet_atelier_dev_mobile
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import fr.epsi.projet_atelier_dev_mobile.databinding.ActivityUserHomeBinding
 
-class UserHomeActivity : BaseActivity() {
+open class UserHomeActivity : BaseActivity() {
     private lateinit var binding: ActivityUserHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,32 +14,34 @@ class UserHomeActivity : BaseActivity() {
         binding = ActivityUserHomeBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        replaceFragment(new CardFragment());
+        replaceFragment(CardFragment());
 
-        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-
-            switch(item.getItemId()) {
-
-                case R.id.store:
-                        replaceFragment(new StoreFragment())
-                        break;
-                case R.id.offers:
-                        replaceFragment(new OffersFragment())
-                        break;
-                case R.id.card:
-                        replaceFragment((new CardFragment()))
-                        break;
+        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.magasin -> {
+                    replaceFragment(StoreFragment())
+                    setHeaderTitle("Magasin")
+                }
+                R.id.offre -> {
+                    replaceFragment(OffersFragment())
+                    setHeaderTitle("Offres")
+                }
+                R.id.carte -> {
+                    replaceFragment(CardFragment())
+                    setHeaderTitle("Carte")
+                }
+                else -> replaceFragment(CardFragment())
             }
+            true
+        }
 
-            return true
-        });
     }
 
-    private fun  replaceFragment( Fragment fragment) {
-
-        FragmentManager fragmentManager= getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout.fragment);
-        fragmentTransaction.commit();
+    fun replaceFragment(fragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout, fragment)
+        fragmentTransaction.commit()
     }
+
 }
