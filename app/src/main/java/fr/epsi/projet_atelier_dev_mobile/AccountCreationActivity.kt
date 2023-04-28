@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.zxing.integration.android.IntentIntegrator
@@ -20,7 +21,7 @@ class AccountCreationActivity : BaseActivity() {
         setHeaderTitle("Création de compte")
         val preferenceHelper = PreferenceHelper(this)
 
-        val scanQRButton = findViewById<Button>(R.id.scanQRButton)
+        val scanQRButton = findViewById<ImageButton>(R.id.scanQRButton)
         scanQRButton.setOnClickListener {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), CAMERA_REQUEST_CODE)
@@ -28,8 +29,12 @@ class AccountCreationActivity : BaseActivity() {
                 startQRScanActivity()
             }
         }
-//        val user = User("Julien", "Flusin", "julien.flusin@epsi.fr", "114 rue lucien faure", "33300", "Bordeaux", "123456789")
-//        preferenceHelper.saveUser(user)
+
+        val manualFormButton = findViewById<Button>(R.id.manualFormButton)
+        manualFormButton.setOnClickListener {
+            val intent = Intent(this, AccountCreationFormActivity::class.java)
+            startActivity(intent)
+        }
     }
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -58,8 +63,10 @@ class AccountCreationActivity : BaseActivity() {
                 Log.d("QRCodeData", "Cancelled")
             } else {
                 // Handle the decoded QR code data here
-                val qrcode = result.contents
-                Log.d("QRCodeData", "QR Code: $qrcode")
+                val qrcodeData = result.contents
+                val intent = Intent(this, AccountCreationFormActivity::class.java)
+                intent.putExtra("qrcodeData", qrcodeData)
+                startActivity(intent)
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)

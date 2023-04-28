@@ -12,12 +12,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <Button
+    <ImageButton
         android:id="@+id/scanQRButton"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Scan QR Code" />
+        android:layout_marginTop="48dp"
+        android:layout_marginHorizontal="40dp"
+        android:paddingVertical="10dp"
+        android:src="@drawable/qrcode_logo_small"
+        android:contentDescription="Scan QR Code"
+        android:background="@drawable/round_border"/>
+
+    <Button
+        android:id="@+id/manualFormButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="48dp"
+        android:layout_marginHorizontal="40dp"
+        android:paddingVertical="10dp"
+        android:text="Remplir le formulaire manuellement"
+        android:textColor="@color/white"
+        android:background="@drawable/round_border" />
 
 
 </LinearLayout>
