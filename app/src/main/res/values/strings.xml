@@ -6,6 +6,19 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="Nom">Nom</string>
+    <string name="prenom">Prénom</string>
+    <string name="email">Email</string>
+    <string name="adresse">Adresse</string>
+    <string name="cp">Code Postal</string>
+    <string name="ville">Ville</string>
+    <string name="cdf">Carte de fidélité</string>
+    <string name="Creer">Créer</string>
+    <string name="np">Nom Prénom</string>
+    <string name="clearShared">Clear Shared Preferences</string>
+    <string name="Cardref">Cardref</string>
+    <string name="ScanQRCode">Scan QR Code</string>
+    <string name="rfm">Remplir le formulaire manuellement</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

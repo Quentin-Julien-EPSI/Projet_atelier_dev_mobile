@@ -25,7 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
-            android:hint="Nom" />
+            android:hint="@string/Nom"/>
+
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -41,7 +42,7 @@
             android:id="@+id/prenom_form"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Prénom" />
+            android:hint="@string/prenom" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -57,7 +58,7 @@
             android:id="@+id/email_form"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -74,7 +75,7 @@
             android:id="@+id/adresse_form"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Adresse" />
+            android:hint="@string/adresse" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,7 +91,7 @@
             android:id="@+id/code_postal_form"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Code Postal" />
+            android:hint="@string/cp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,7 +107,7 @@
             android:id="@+id/ville_form"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Ville" />
+            android:hint="@string/ville" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -122,7 +123,7 @@
             android:id="@+id/carte_de_fidelite_form"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Carte de fidélité" />
+            android:hint="@string/cdf" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,7 +132,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Créer" />
+        android:text="@string/Creer" />
 
 
 </LinearLayout>
