@@ -14,6 +14,7 @@
     <string name="ville">Ville</string>
     <string name="cdf">Carte de fidélité</string>
     <string name="Creer">Créer</string>
+    <string name="Enregistrer">Enregistrer</string>
     <string name="np">Nom Prénom</string>
     <string name="clearShared">Clear Shared Preferences</string>
     <string name="Cardref">Cardref</string>
