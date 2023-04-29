@@ -33,7 +33,7 @@
         android:layout_marginHorizontal="40dp"
         android:paddingVertical="10dp"
         android:text="@string/rfm"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:background="@drawable/round_border" />
 
 

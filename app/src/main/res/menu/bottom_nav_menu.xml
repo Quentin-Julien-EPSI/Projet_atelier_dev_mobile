@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="Carte"
-        android:icon="@drawable/baseline_map_24"
+        android:icon="@drawable/baseline_card_membership_24"
         android:id="@+id/carte"
         />
     <item android:title="Offres"
