@@ -15,6 +15,7 @@ open class UserHomeActivity : BaseActivity() {
         val view = binding.root
         setContentView(view)
         replaceFragment(CardFragment());
+        setHeaderTitle("Carte")
 
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -30,7 +31,10 @@ open class UserHomeActivity : BaseActivity() {
                     replaceFragment(CardFragment())
                     setHeaderTitle("Carte")
                 }
-                else -> replaceFragment(CardFragment())
+                else -> {
+                    replaceFragment(CardFragment())
+                    setHeaderTitle("Carte")
+                }
             }
             true
         }

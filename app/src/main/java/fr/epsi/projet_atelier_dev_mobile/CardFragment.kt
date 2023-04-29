@@ -58,26 +58,6 @@ class CardFragment : Fragment() {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
-            val preferenceHelper = PreferenceHelper(activity?.applicationContext!!)
-
-            val clearSharedPreferencesButton: Button = requireView().findViewById(R.id.clearsharedpreferences)
-            clearSharedPreferencesButton.setOnClickListener {
-//            clear the shared preferences
-                preferenceHelper.clearSharedPreferences()
-//            restart the app
-                val ctx = getActivity()?.getApplicationContext();
-                val pm = ctx?.packageManager
-                val intent = pm?.getLaunchIntentForPackage(ctx.packageName)
-                val mainIntent = Intent.makeRestartActivityTask(intent!!.component)
-                ctx.startActivity(mainIntent)
-                Runtime.getRuntime().exit(0)
-            }
-            Log.i("PROJET ATELIER DEV MOBILE", "################ User :"+preferenceHelper.getUser()?.firstName)
-            val textViewNames = requireView().findViewById<TextView>(R.id.textViewNames)
-            textViewNames.text = (preferenceHelper.getUser()?.firstName ?: "Prénom") + " " + (preferenceHelper.getUser()?.lastName ?: "Nom")
-            generateBarcode(preferenceHelper.getUser()?.cardRef ?: "0000000000")
-            val textViewCardRef = requireView().findViewById<TextView>(R.id.textViewCardRef)
-            textViewCardRef.text = preferenceHelper.getUser()?.cardRef ?: "0000000000"
         }
     }
 
@@ -87,6 +67,29 @@ class CardFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_card, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val preferenceHelper = PreferenceHelper(activity?.applicationContext!!)
+
+        val clearSharedPreferencesButton: Button = requireView().findViewById(R.id.clearsharedpreferences)
+        clearSharedPreferencesButton.setOnClickListener {
+//            clear the shared preferences
+            preferenceHelper.clearSharedPreferences()
+//            restart the app
+            val ctx = getActivity()?.getApplicationContext();
+            val pm = ctx?.packageManager
+            val intent = pm?.getLaunchIntentForPackage(ctx.packageName)
+            val mainIntent = Intent.makeRestartActivityTask(intent!!.component)
+            ctx.startActivity(mainIntent)
+            Runtime.getRuntime().exit(0)
+        }
+        val textViewNames = requireView().findViewById<TextView>(R.id.textViewNames)
+        textViewNames.text = (preferenceHelper.getUser()?.firstName ?: "Prénom") + " " + (preferenceHelper.getUser()?.lastName ?: "Nom")
+        generateBarcode(preferenceHelper.getUser()?.cardRef ?: "0000000000")
+        val textViewCardRef = requireView().findViewById<TextView>(R.id.textViewCardRef)
+        textViewCardRef.text = preferenceHelper.getUser()?.cardRef ?: "0000000000"
     }
 
     companion object {
