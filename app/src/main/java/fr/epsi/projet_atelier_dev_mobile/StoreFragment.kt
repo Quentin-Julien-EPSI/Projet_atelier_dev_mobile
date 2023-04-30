@@ -1,6 +1,7 @@
 package fr.epsi.projet_atelier_dev_mobile
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -28,11 +29,22 @@ import okhttp3.Response
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
+import java.io.Serializable
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-data class StoreInfo(val name: String, val address: String)
+data class StoreInfo(
+    val storeId: Int,
+    val name: String,
+    val description: String,
+    val pictureStore: String,
+    val address: String,
+    val zipcode: String,
+    val city: String,
+    val longitude: Double,
+    val latitude: Double
+) : Serializable
 
 class StoreFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
     class CustomInfoWindowAdapter(private val context: Context) : GoogleMap.InfoWindowAdapter {
@@ -90,9 +102,16 @@ class StoreFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClic
     }
 
     override fun onInfoWindowClick(marker: Marker) {
-        // Handle the info window click event here
-        Toast.makeText(context, "Info window clicked for ${marker.title}", Toast.LENGTH_SHORT).show()
+        val storeInfo = marker.tag as? StoreInfo
+        storeInfo?.let {
+            val intent = Intent(requireActivity(), StoreDetailsActivity::class.java).apply {
+                putExtra("store_info", it)
+            }
+            startActivity(intent)
+        }
     }
+
+
 
 
     private fun fetchStoresAndAddMarkers() {
@@ -114,7 +133,6 @@ class StoreFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClic
                     if (data != null) {
                         val jsonObject = JSONObject(data)
                         val stores = jsonObject.getJSONArray("stores")
-//                        Log.i("stores", stores.toString())
                         addMarkersToMap(stores)
                     }
                 }
@@ -128,24 +146,27 @@ class StoreFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClic
                 val store = stores.getJSONObject(i)
                 val lat = store.getDouble("latitude")
                 val lng = store.getDouble("longitude")
+                val storeId = store.getInt("storeId")
                 val name = store.getString("name")
-                val address = "${store.getString("address")}, ${store.getString("zipcode")} ${
-                    store.getString("city")
-                }"
+                val description = store.getString("description")
+                val pictureStore = store.getString("pictureStore")
+                val address = store.getString("address")
+                val zipcode = store.getString("zipcode")
+                val city = store.getString("city")
                 val position = LatLng(lat, lng)
 
                 val marker = googleMap?.addMarker(MarkerOptions().position(position).title(name))
-                marker?.tag = StoreInfo(name, address)
-            }
-            // You can adjust the zoom level and the map's initial position if needed
-            googleMap?.moveCamera(
-                CameraUpdateFactory.newLatLngZoom(
-                    LatLng(48.856614, 2.3522219),
-                    5f
+                marker?.tag = StoreInfo(
+                    storeId, name, description, pictureStore,
+                    address, zipcode, city, lng, lat
                 )
+            }
+            googleMap?.moveCamera(
+                CameraUpdateFactory.newLatLngZoom(LatLng(48.856614, 2.3522219), 5f)
             )
         }
     }
+
 
 
 

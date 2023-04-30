@@ -17,10 +17,11 @@
             android:orientation="horizontal">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_offers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
-                tools:itemCount="2"
+                tools:itemCount="5"
                 tools:listitem="@layout/recycler_view_item">
 
             </androidx.recyclerview.widget.RecyclerView>
