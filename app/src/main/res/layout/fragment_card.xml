@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="68dp"
-            android:text="@string/clearShared" />
+            android:text="@string/cleardata" />
 
         <ImageView
             android:id="@+id/barcodeImageView"

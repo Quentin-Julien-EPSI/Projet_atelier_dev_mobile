@@ -10,16 +10,19 @@
     <string name="prenom">Prénom</string>
     <string name="email">Email</string>
     <string name="adresse">Adresse</string>
+    <string name="code_postal_ville">Code Postal : Ville</string>
+    <string name="store_description">Description</string>
     <string name="cp">Code Postal</string>
     <string name="ville">Ville</string>
     <string name="cdf">Carte de fidélité</string>
     <string name="Creer">Créer</string>
     <string name="Enregistrer">Enregistrer</string>
     <string name="np">Nom Prénom</string>
-    <string name="clearShared">Clear Shared Preferences</string>
+    <string name="cleardata">Clear Saved data</string>
     <string name="Cardref">Cardref</string>
     <string name="ScanQRCode">Scan QR Code</string>
     <string name="rfm">Remplir le formulaire manuellement</string>
+    <string name="title_header">Title</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

@@ -3,8 +3,10 @@ package fr.epsi.projet_atelier_dev_mobile
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import com.google.gson.Gson
 
 class AccountDetailsActivity : BaseActivity() {
@@ -12,7 +14,7 @@ class AccountDetailsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account_details)
         setHeaderTitle("Compte")
-
+        showBack()
         val nom_form = findViewById<EditText>(R.id.nom_form)
         val prenom_form = findViewById<EditText>(R.id.prenom_form)
         val email_form = findViewById<EditText>(R.id.email_form)

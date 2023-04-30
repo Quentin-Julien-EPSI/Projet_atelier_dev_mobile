@@ -13,6 +13,7 @@ class StoreDetailsActivity : BaseActivity() {
         val storeInfo = intent.getSerializableExtra("store_info") as? StoreInfo
         storeInfo?.let {
             setHeaderTitle(it.name)
+            showBack()
 
             val imageView = findViewById<ImageView>(R.id.imageView)
             val addressInfoTextView = findViewById<TextView>(R.id.adress_info)
